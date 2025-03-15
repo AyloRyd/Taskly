@@ -1,6 +1,6 @@
 import { HiTrash } from "react-icons/hi";
 import NewTask from "./NewTask";
-import { useProjects } from "../../hooks/useProjects";
+import { useProjects } from "../hooks/useProjects";
 
 const Tasks = () => {
   const { projectsState, handleDeleteTask } = useProjects();

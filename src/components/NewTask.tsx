@@ -1,5 +1,6 @@
+import Button from "./ui/Button";
 import { useState } from "react";
-import { useProjects } from "../../hooks/useProjects";
+import { useProjects } from "../hooks/useProjects";
 
 const NewTask = () => {
   const { handleAddTask } = useProjects();
@@ -11,11 +12,11 @@ const NewTask = () => {
 
   const handleClick = () => {
     if (!enteredTask.trim()) {
-      return; 
+      return;
     }
 
     handleAddTask(enteredTask);
-    setEnteredTask(""); 
+    setEnteredTask("");
   };
 
   return (
@@ -27,13 +28,13 @@ const NewTask = () => {
         value={enteredTask}
         placeholder="Enter a new task"
       />
-      <button
-        onClick={handleClick}
-        className={`cursor-pointer px-4 py-2 text-base rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out`}
+      <Button
+        variant="primary"
         disabled={!enteredTask.trim()}
+        onClick={handleClick}
       >
         Add task
-      </button>
+      </Button>
     </div>
   );
 };

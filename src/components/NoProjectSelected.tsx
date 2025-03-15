@@ -1,4 +1,5 @@
 import Wrapper from "./ui/Wrapper";
+import Button from "./ui/Button";
 import nothingSelectedIcon from "../assets/text-x-generic.svg";
 import { useProjects } from "../hooks/useProjects";
 
@@ -20,12 +21,9 @@ const NoProjectSelected = () => {
           Select a taskgroup or get started with a new one
         </p>
         <p className="mt-8">
-          <button
-            onClick={handleStartAddProject}
-            className="cursor-pointer px-4 py-2 text-base rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out"
-          >
+          <Button variant="primary" onClick={handleStartAddProject}>
             Create new taskgroup
-          </button>
+          </Button>
         </p>
       </div>
     </Wrapper>

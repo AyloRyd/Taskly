@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({
   return createPortal(
     <dialog
       ref={dialog}
-      className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 backdrop:bg-stone-900/60 backdrop:backdrop-blur-sm p-6 rounded-xl shadow-lg dark:bg-stone-700"
+      className="dark:bg-stone-800 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 backdrop:bg-stone-900/60 backdrop:backdrop-blur-sm p-6 rounded-xl shadow-lg"
       onClose={onClose}
     >
       {children}

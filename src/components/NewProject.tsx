@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "./ui/Input";
 import Modal from "./ui/Modal";
 import Wrapper from "./ui/Wrapper";
+import Button from "./ui/Button";
 import { useProjects } from "../hooks/useProjects";
 import { useTitle } from "../hooks/useTitle";
 
@@ -29,7 +30,7 @@ const NewProject = () => {
     }
 
     handleAddProject({ title, description, dueDate });
-  }
+  };
 
   return (
     <>
@@ -40,37 +41,35 @@ const NewProject = () => {
           setIsModalOpen(false);
         }}
         closeButton={
-          <button className="cursor-pointer px-6 py-2 mt-4 w-full rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out">
+          <Button variant="primary" className="px-6 mt-4 w-full">
             Cancel
-          </button>
+          </Button>
         }
       >
-        <h2 className="text-xl font-bold text-stone-600 dark:text-stone-200 my-2">Invalid input</h2>
+        <h2 className="text-xl font-bold text-stone-600 dark:text-stone-200 my-2">
+          Invalid input
+        </h2>
         {isTitleTooBig ? (
           <p className="text-stone-500 dark:text-stone-300 mb-4">
             Title length must be less <br /> then 15 symbols.
           </p>
         ) : (
-          <p className="text-stone-500 dark:text-stone-300 mb-4">Please fill out all fields.</p>
+          <p className="text-stone-500 dark:text-stone-300 mb-4">
+            Please fill out all fields.
+          </p>
         )}
       </Modal>
       <Wrapper>
         <menu className="flex items-center justify-end gap-4">
           <li>
-            <button
-              onClick={handleCancelButton}
-              className="cursor-pointer px-8 py-2 text-base rounded-xl bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-200 hover:bg-stone-300 dark:hover:bg-stone-600 transition-colors ease-in-out"
-            >
+            <Button variant="secondary" className="px-8" onClick={handleCancelButton}>
               Cancel
-            </button>
+            </Button>
           </li>
           <li>
-            <button
-              onClick={handleSave}
-              className="cursor-pointer px-8 py-2 text-base rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out"
-            >
+            <Button variant="primary" className="px-8" onClick={handleSave}>
               Save
-            </button>
+            </Button>
           </li>
         </menu>
         <div>

@@ -21,7 +21,7 @@ const SidebarHeader = () => {
         onClick={toggleTheme}
         className="cursor-pointer w-fit h-fit p-2 rounded-xl bg-stone-700 text-stone-100 hover:bg-stone-600 hover:text-stone-100 transition-colors ease-in-out"
       >
-        {theme === "dark" ? (
+        {theme === "light" ? (
           <HiSun size={25} className="text-amber-400"/>
         ) : (
           <HiMoon size={25} />
