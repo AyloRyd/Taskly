@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useProjects } from "../../store/projects-context.tsx";
+import { useProjects } from "../../hooks/useProjects";
 
 const NewTask = () => {
   const { handleAddTask } = useProjects();
@@ -22,14 +22,14 @@ const NewTask = () => {
     <div className="flex items-center gap-4">
       <input
         type="text"
-        className="w-64 h-[2.5rem] px-2 py-1 rounded-xl bg-stone-200"
+        className="w-64 h-[2.5rem] px-2 py-1 rounded-xl bg-stone-200 dark:bg-stone-700 dark:text-stone-50"
         onChange={handleChange}
         value={enteredTask}
         placeholder="Enter a new task"
       />
       <button
         onClick={handleClick}
-        className={`text-stone-700 hover:text-stone-900 ${!enteredTask.trim() ? 'opacity-50' : 'cursor-pointer'}`}
+        className={`cursor-pointer px-4 py-2 text-base rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out`}
         disabled={!enteredTask.trim()}
       >
         Add task

@@ -1,7 +1,7 @@
-import NewProject from "./NewProject.tsx";
-import NoProjectSelected from "./NoProjectSelected.tsx";
-import SelectedProject from "./SelectedProject.tsx";
-import { useProjects } from "../store/projects-context.tsx";
+import NewProject from "./NewProject";
+import NoProjectSelected from "./NoProjectSelected";
+import SelectedProject from "./SelectedProjects";
+import { useProjects } from "../hooks/useProjects";
 
 const ProjectContent = () => {
   const { projectsState } = useProjects();

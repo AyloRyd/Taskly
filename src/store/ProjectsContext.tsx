@@ -1,6 +1,5 @@
 import {
   createContext,
-  useContext,
   useReducer,
   useEffect,
   ReactNode,
@@ -112,15 +111,7 @@ interface ProjectsContextType {
   handleDeleteProject: () => void;
 }
 
-const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined);
-
-export const useProjects = () => {
-  const context = useContext(ProjectsContext);
-  if (context === undefined) {
-    throw new Error("useProjects must be used within a ProjectsProvider");
-  }
-  return context;
-};
+export const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined);
 
 export const ProjectsProvider: React.FC<{children: ReactNode }> = ({ children }) => {
   const [projectsState, projectsStateDispatch] = useReducer(

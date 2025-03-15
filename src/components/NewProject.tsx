@@ -1,10 +1,13 @@
 import { useState } from "react";
-import Input from "./ui/Input.tsx";
-import Modal from "./ui/Modal.tsx";
-import Wrapper from "./ui/Wrapper.tsx";
-import { useProjects } from "../store/projects-context.tsx";
+import Input from "./ui/Input";
+import Modal from "./ui/Modal";
+import Wrapper from "./ui/Wrapper";
+import { useProjects } from "../hooks/useProjects";
+import { useTitle } from "../hooks/useTitle";
 
 const NewProject = () => {
+  useTitle("Taskly: new taskgroup");
+
   const { handleAddProject, handleCancelButton } = useProjects();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -13,7 +16,7 @@ const NewProject = () => {
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
 
-  function handleSave() {
+  const handleSave = () => {
     if (!title.trim() || !description.trim() || !dueDate) {
       setIsModalOpen(true);
       return;
@@ -37,18 +40,18 @@ const NewProject = () => {
           setIsModalOpen(false);
         }}
         closeButton={
-          <button className="cursor-pointer px-6 py-2 mt-4 w-full rounded-xl bg-stone-700 text-stone-50 hover:bg-stone-600 transition-colors ease-in-out">
+          <button className="cursor-pointer px-6 py-2 mt-4 w-full rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out">
             Cancel
           </button>
         }
       >
-        <h2 className="text-xl font-bold text-stone-600 my-2">Invalid input</h2>
+        <h2 className="text-xl font-bold text-stone-600 dark:text-stone-200 my-2">Invalid input</h2>
         {isTitleTooBig ? (
-          <p className="text-stone-500 mb-4">
+          <p className="text-stone-500 dark:text-stone-300 mb-4">
             Title length must be less <br /> then 15 symbols.
           </p>
         ) : (
-          <p className="text-stone-500 mb-4">Please fill out all fields.</p>
+          <p className="text-stone-500 dark:text-stone-300 mb-4">Please fill out all fields.</p>
         )}
       </Modal>
       <Wrapper>
@@ -56,7 +59,7 @@ const NewProject = () => {
           <li>
             <button
               onClick={handleCancelButton}
-              className="cursor-pointer px-6 py-2 rounded-xl border-stone-50 border-[1px] text-stone-900 hover:border-stone-900 hover:border-[1px] transition-colors ease-in-out"
+              className="cursor-pointer px-8 py-2 text-base rounded-xl bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-200 hover:bg-stone-300 dark:hover:bg-stone-600 transition-colors ease-in-out"
             >
               Cancel
             </button>
@@ -64,7 +67,7 @@ const NewProject = () => {
           <li>
             <button
               onClick={handleSave}
-              className="cursor-pointer px-6 py-2 rounded-xl border-stone-700 border-[1px] hover:border-stone-600 bg-stone-700 text-stone-50 hover:bg-stone-600 transition-colors ease-in-out"
+              className="cursor-pointer px-8 py-2 text-base rounded-xl bg-stone-700 dark:bg-stone-100 text-stone-100 dark:text-stone-900 hover:bg-stone-600 dark:hover:bg-stone-300 transition-colors ease-in-out"
             >
               Save
             </button>
