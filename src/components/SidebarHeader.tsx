@@ -1,8 +1,8 @@
-import { useProjects } from "../hooks/useProjects";
-import { useTheme } from "../hooks/useTheme";
 import { HiSun } from "react-icons/hi";
 import { HiMoon } from "react-icons/hi";
 import TasklyLogo from "../assets/todo-icon.png";
+import { useProjects } from "../hooks/useProjects";
+import { useTheme } from "../hooks/useTheme";
 
 const SidebarHeader = () => {
   const { handleGoHomePage } = useProjects();

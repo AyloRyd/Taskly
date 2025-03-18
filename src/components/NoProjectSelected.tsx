@@ -1,5 +1,5 @@
-import Wrapper from "./ui/Wrapper";
 import Button from "./ui/Button";
+import Wrapper from "./ui/Wrapper";
 import nothingSelectedIcon from "../assets/text-x-generic.svg";
 import { useProjects } from "../hooks/useProjects";
 

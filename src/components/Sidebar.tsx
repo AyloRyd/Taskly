@@ -1,52 +1,50 @@
-import SidebarHeader from "./SidebarHeader";
 import Button from "./ui/Button";
+import SidebarHeader from "./SidebarHeader";
+import SidebarProjectsList from "./SidebarProjectsList";
 import { useProjects } from "../hooks/useProjects";
+import { useSidebar } from "../hooks/useSidebar";
+import clsx from "clsx";
 
-const ProjectsSidebar = () => {
-  const { projectsState, handleStartAddProject, handleSelectProject } =
-    useProjects();
+const Sidebar = () => {
+  const { handleStartAddProject } = useProjects();
+  const { isSidebarOpen, closeSidebar } = useSidebar();
 
   return (
-    <aside className="w-72 lg:w-96 px-8 py-16 bg-stone-900 text-stone-50 rounded-r-xl">
-      <SidebarHeader />
-      <h2 className="flex flex-col lg:flex-row mb-8 font-bold uppercase text-xl text-stone-200">
-        Your taskgroups
-      </h2>
-      <div>
+    <>
+      <aside
+        className={clsx(
+          "fixed top-0 left-0 z-40 transition-transform duration-300 md:relative md:translate-x-0 md:w-72 lg:w-96 md:h-auto px-8 py-16 bg-stone-900 text-stone-50 rounded-r-xl",
+          {
+            "translate-x-0 w-2/3 h-full": isSidebarOpen,
+            "-translate-x-full w-2/3 h-full": !isSidebarOpen,
+          }
+        )}
+      >
+        <SidebarHeader />
+        <h2 className="flex flex-col lg:flex-row mb-8 font-bold uppercase text-xl text-stone-200">
+          Your taskgroups
+        </h2>
         <Button
           variant="gradient"
           className="w-full"
-          onClick={handleStartAddProject}
+          onClick={() => {
+            handleStartAddProject();
+            closeSidebar();
+          }}
         >
           New taskgroup
         </Button>
-      </div>
-      <ul className="mt-8">
-        {projectsState.projects.map((project) => {
-          let buttonCss =
-            "cursor-pointer w-full flex flex-col text-left justify-between gap-1 p-3 my-4 rounded-xl";
-          if (project.id === projectsState.selectedProjectId) {
-            buttonCss += " bg-stone-700";
-          } else {
-            buttonCss += " bg-stone-800 hover:bg-stone-700";
-          }
-          return (
-            <li key={project.id}>
-              <button
-                className={buttonCss}
-                onClick={() => handleSelectProject(project.id)}
-              >
-                <h3 className="font-bold text-stone-200 truncate">
-                  {project.title}
-                </h3>
-                <span className="text-stone-400">{project.dueDate}</span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </aside>
+        <SidebarProjectsList />
+      </aside>
+
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-30 md:hidden"
+          onClick={closeSidebar}
+        />
+      )}
+    </>
   );
 };
 
-export default ProjectsSidebar;
+export default Sidebar;

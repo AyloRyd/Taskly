@@ -1,12 +1,12 @@
+import { useEffect, useRef, ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { useEffect, useRef } from "react";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactNode;
-  closeButton?: React.ReactNode;
-  approveButton?: React.ReactNode;
+  children: ReactNode;
+  closeButton?: ReactNode;
+  approveButton?: ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({
