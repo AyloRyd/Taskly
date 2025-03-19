@@ -13,7 +13,7 @@ const Sidebar = () => {
     <>
       <aside
         className={clsx(
-          "fixed top-0 left-0 z-40 transition-transform duration-300 md:relative md:translate-x-0 md:w-72 lg:w-96 md:h-auto px-8 py-16 bg-stone-900 text-stone-50 rounded-r-xl",
+          "fixed top-0 left-0 z-40 transition-transform duration-300 md:relative md:translate-x-0 md:w-72 lg:w-96 md:h-auto px-8 py-16 bg-stone-100 dark:bg-stone-900 text-stone-50 rounded-r-xl",
           {
             "translate-x-0 w-2/3 h-full": isSidebarOpen,
             "-translate-x-full w-2/3 h-full": !isSidebarOpen,
@@ -21,16 +21,13 @@ const Sidebar = () => {
         )}
       >
         <SidebarHeader />
-        <h2 className="flex flex-col lg:flex-row mb-8 font-bold uppercase text-xl text-stone-200">
+        <h2 className="flex flex-col lg:flex-row mb-8 font-bold uppercase text-xl text-stone-700 dark:text-stone-200">
           Your taskgroups
         </h2>
         <Button
           variant="gradient"
           className="w-full"
-          onClick={() => {
-            handleStartAddProject();
-            closeSidebar();
-          }}
+          onClick={handleStartAddProject}
         >
           New taskgroup
         </Button>

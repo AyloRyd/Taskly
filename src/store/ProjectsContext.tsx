@@ -113,7 +113,7 @@ interface ProjectsContextType {
 
 export const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined);
 
-export const ProjectsProvider: React.FC<{children: ReactNode }> = ({ children }) => {
+export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [projectsState, projectsStateDispatch] = useReducer(
     projectsReducer,
     initialProjectsState,

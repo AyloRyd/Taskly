@@ -20,10 +20,10 @@ const NewTask = () => {
   };
 
   return (
-    <div className="flex justify-between gap-4">
+    <div className="flex justify-between md:justify-start gap-4">
       <input
         type="text"
-        className="w-56 md:w-64 h-[2.5rem] px-2 py-1 rounded-xl bg-stone-200 dark:bg-stone-700 dark:text-stone-50"
+        className="w-fit md:w-64 h-[2.5rem] px-2 py-1 rounded-xl bg-stone-200 dark:bg-stone-700 dark:text-stone-50"
         onChange={handleChange}
         value={enteredTask}
         placeholder="Enter a new task"

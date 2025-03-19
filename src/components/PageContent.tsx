@@ -11,13 +11,11 @@ const PageContent = () => {
   const { closeSidebar } = useSidebar();
 
   useEffect(() => {
-    if (projectsState.selectedProjectId) {
-      closeSidebar();
-    }
-  }, [projectsState.selectedProjectId, closeSidebar]);
+    closeSidebar();
+  }, [projectsState.selectedProjectId]);
 
   return (
-    <div className="flex flex-col w-full p-5">
+    <div className="flex flex-col w-full p-7">
       <PhoneTopBar />
       {projectsState.selectedProjectId === null ? (
         <NewProject />

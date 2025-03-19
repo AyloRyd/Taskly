@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({ variant = "primary", className, childre
     secondary:
       "bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-200 hover:bg-stone-300 dark:hover:bg-stone-600",
     gradient:
-      "text-stone-100 bg-gradient-to-br from-purple-700 to-teal-700 hover:from-purple-600 hover:to-teal-600",
+      "text-stone-100 bg-gradient-to-br from-purple-600 dark:from-purple-700 to-teal-600 dark:to-teal-700 hover:from-purple-700 dark:hover:from-purple-600 hover:to-teal-600 dark:hover:to-teal-600",
     danger:
       "text-stone-50 bg-red-600 hover:bg-red-500",
   };

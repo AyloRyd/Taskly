@@ -19,7 +19,7 @@ const PhoneTopBar = () => {
 
       <button
         onClick={toggleSidebar}
-        className="cursor-pointer text-stone-900 dark:text-stone-100 p-2"
+        className="cursor-pointer text-stone-900 dark:text-stone-100"
         aria-label="Open sidebar"
       >
         <HiViewGrid className="w-8 h-8" />
