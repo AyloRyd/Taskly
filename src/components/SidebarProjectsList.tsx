@@ -1,4 +1,5 @@
 import { useProjects } from "../hooks/useProjects";
+import clsx from "clsx";
 
 const SidebarProjectsList = () => {
   const { projectsState, handleSelectProject } = useProjects();
@@ -6,13 +7,14 @@ const SidebarProjectsList = () => {
   return (
     <ul className="mt-8">
       {projectsState.projects.map((project) => {
-        let buttonCss =
-          "cursor-pointer w-full flex flex-col text-left justify-between gap-1 p-3 my-4 rounded-xl";
-        if (project.id === projectsState.selectedProjectId) {
-          buttonCss += " bg-stone-300 dark:bg-stone-700";
-        } else {
-          buttonCss += " bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700";
-        }
+        const buttonCss = clsx(
+          "cursor-pointer w-full flex flex-col text-left justify-between gap-1 p-3 my-4 rounded-xl",
+          {
+            "bg-stone-300 dark:bg-stone-700": project.id === projectsState.selectedProjectId,
+            "bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700": project.id !== projectsState.selectedProjectId,
+          }
+        );
+
         return (
           <li key={project.id}>
             <button

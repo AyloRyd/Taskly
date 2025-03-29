@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "./ui/Button";
 import Modal from "./ui/Modal";
-import Wrapper from "./ui/Wrapper";
 import Tasks from "./Tasks";
 import { useProjects } from "../hooks/useProjects";
 import { useTitle } from "../hooks/useTitle";
@@ -57,27 +56,25 @@ const SelectedProject = () => {
           You will not be able to restore it.
         </p>
       </Modal>
-      <Wrapper>
-        <header className="pb-4 mb-4 border-b-2 border-gray-300 dark:border-gray-600">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold text-stone-700 dark:text-stone-200 mb-2">
-              {project.title}
-            </h1>
-            <Button
-              variant="danger"
-              className="px-8"
-              onClick={() => setIsModalOpen(true)}
-            >
-              Delete
-            </Button>
-          </div>
-          <p className="mb-4 text-stone-500 dark:text-stone-200">{date}</p>
-          <p className="text-stone-600 dark:text-stone-300 whitespace-pre-wrap">
-            {project.description}
-          </p>
-        </header>
-        <Tasks />
-      </Wrapper>
+      <header className="pb-4 mb-4 border-b-2 border-gray-300 dark:border-gray-600">
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-stone-700 dark:text-stone-200 mb-2 truncate">
+            {project.title}
+          </h1>
+          <Button
+            variant="danger"
+            className="px-8"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Delete
+          </Button>
+        </div>
+        <p className="mb-4 text-stone-500 dark:text-stone-200">{date}</p>
+        <p className="text-stone-600 dark:text-stone-300 whitespace-pre-wrap">
+          {project.description}
+        </p>
+      </header>
+      <Tasks />
     </>
   );
 };

@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from "./ui/Button";
 import Input from "./ui/Input";
 import Modal from "./ui/Modal";
-import Wrapper from "./ui/Wrapper";
 import { useProjects } from "../hooks/useProjects";
 import { useTitle } from "../hooks/useTitle";
 
@@ -59,46 +58,48 @@ const NewProject = () => {
           </p>
         )}
       </Modal>
-      <Wrapper>
-        <menu className="flex items-center justify-end gap-4">
-          <li>
-            <Button variant="secondary" className="px-8" onClick={handleCancelButton}>
-              Cancel
-            </Button>
-          </li>
-          <li>
-            <Button variant="primary" className="px-8" onClick={handleSave}>
-              Save
-            </Button>
-          </li>
-        </menu>
-        <div>
-          <Input
-            value={title}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setTitle(e.target.value)
-            }
-            type="text"
-            label="Title"
-          />
-          <Input
-            value={description}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              setDescription(e.target.value)
-            }
-            label="Description"
-            textarea
-          />
-          <Input
-            value={dueDate}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setDueDate(e.target.value)
-            }
-            type="date"
-            label="Due date"
-          />
-        </div>
-      </Wrapper>
+      <menu className="flex items-center justify-end gap-4">
+        <li>
+          <Button
+            variant="secondary"
+            className="px-8"
+            onClick={handleCancelButton}
+          >
+            Cancel
+          </Button>
+        </li>
+        <li>
+          <Button variant="primary" className="px-8" onClick={handleSave}>
+            Save
+          </Button>
+        </li>
+      </menu>
+      <div>
+        <Input
+          value={title}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setTitle(e.target.value)
+          }
+          type="text"
+          label="Title"
+        />
+        <Input
+          value={description}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setDescription(e.target.value)
+          }
+          label="Description"
+          textarea
+        />
+        <Input
+          value={dueDate}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setDueDate(e.target.value)
+          }
+          type="date"
+          label="Due date"
+        />
+      </div>
     </>
   );
 };

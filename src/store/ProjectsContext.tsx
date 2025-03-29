@@ -32,7 +32,9 @@ const projectsReducer = (
 ): ProjectsState => {
   switch (action.type) {
     case "GO_HOME":
-      return { ...state, selectedProjectId: undefined };
+      return state.selectedProjectId !== undefined
+        ? { ...state, selectedProjectId: undefined }
+        : state;
     case "SELECT_PROJECT":
       return { ...state, selectedProjectId: action.payload };
     case "START_ADD_PROJECT":

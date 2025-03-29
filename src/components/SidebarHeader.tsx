@@ -1,5 +1,6 @@
 import { HiSun } from "react-icons/hi";
 import { HiMoon } from "react-icons/hi";
+import Button from "./ui/Button";
 import TasklyLogo from "../assets/todo-icon.png";
 import { useProjects } from "../hooks/useProjects";
 import { useTheme } from "../hooks/useTheme";
@@ -20,18 +21,21 @@ const SidebarHeader = () => {
         className="cursor-pointer flex items-center"
       >
         <img src={TasklyLogo} alt="Taskly logo" className="h-6 mr-2" />
-        <p className="font-bold text-xl text-stone-700 dark:text-stone-200">Taskly</p>
+        <p className="font-bold text-xl text-stone-700 dark:text-stone-200">
+          Taskly
+        </p>
       </div>
-      <button
+      <Button
         onClick={toggleTheme}
-        className="cursor-pointer w-fit h-fit p-2 rounded-xl bg-stone-200 dark:bg-stone-700 text-stone-100 hover:bg-stone-300 dark:hover:bg-stone-600 hover:text-stone-100 transition-colors ease-in-out"
+        variant="secondary"
+        className="p-2 w-fit h-fit"
       >
         {theme === "light" ? (
-          <HiSun size={25} className="text-amber-500" />
+          <HiSun size={27} className="text-amber-400" />
         ) : (
           <HiMoon size={25} />
         )}
-      </button>
+      </Button>
     </div>
   );
 };

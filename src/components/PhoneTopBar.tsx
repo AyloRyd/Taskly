@@ -4,7 +4,7 @@ import { useProjects } from "../hooks/useProjects";
 import { useSidebar } from "../hooks/useSidebar";
 
 const PhoneTopBar = () => {
-  const { toggleSidebar } = useSidebar();
+  const { openSidebar } = useSidebar();
   const { handleGoHomePage } = useProjects();
 
   return (
@@ -18,7 +18,7 @@ const PhoneTopBar = () => {
       </div>
 
       <button
-        onClick={toggleSidebar}
+        onClick={openSidebar}
         className="cursor-pointer text-stone-900 dark:text-stone-100"
         aria-label="Open sidebar"
       >

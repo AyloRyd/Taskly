@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Wrapper from "./ui/Wrapper";
 import NewProject from "./NewProject";
 import NoProjectSelected from "./NoProjectSelected";
 import SelectedProject from "./SelectedProjects";
@@ -17,13 +18,15 @@ const PageContent = () => {
   return (
     <div className="flex flex-col w-full p-7">
       <PhoneTopBar />
-      {projectsState.selectedProjectId === null ? (
-        <NewProject />
-      ) : projectsState.selectedProjectId === undefined ? (
-        <NoProjectSelected />
-      ) : (
-        <SelectedProject />
-      )}
+      <Wrapper>
+        {projectsState.selectedProjectId === null ? (
+          <NewProject />
+        ) : projectsState.selectedProjectId === undefined ? (
+          <NoProjectSelected />
+        ) : (
+          <SelectedProject />
+        )}
+      </Wrapper>
     </div>
   );
 };

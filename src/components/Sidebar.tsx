@@ -21,7 +21,7 @@ const Sidebar = () => {
         )}
       >
         <SidebarHeader />
-        <h2 className="flex flex-col lg:flex-row mb-8 font-bold uppercase text-xl text-stone-700 dark:text-stone-200">
+        <h2 className="flex flex-col mb-8 font-bold uppercase text-xl text-stone-700 dark:text-stone-200">
           Your taskgroups
         </h2>
         <Button

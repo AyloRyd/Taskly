@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 type InputProps = {
   label: string;
@@ -9,13 +10,13 @@ type InputProps = {
 const Input: React.FC<InputProps> = ({ label, textarea, className, ...props }) => {
   const baseClasses =
     "w-full p-2 border-b-2 rounded-xl focus:outline-none";
-  const dynamicClasses = clsx(
+  const dynamicClasses = twMerge(clsx(
     baseClasses,
-    "border-stone-200 dark:border-stone-600 bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-200",
+    "border-stone-200 dark:border-stone-700 bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-200",
     "focus:border-stone-600 dark:focus:border-stone-200",
     textarea ? "h-[10rem]" : "h-[2.5rem]",
     className 
-  );
+  ));
 
   return (
     <p className="flex flex-col gap-1 my-4">
